@@ -18,7 +18,7 @@
         <junit-pioneer.version>2.0.1</junit-pioneer.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <lombok.version>1.18.24</lombok.version>
-        <bonigarcia.version>3.8.1</bonigarcia.version>
+        <bonigarcia.version>5.5.0</bonigarcia.version>
         <selenium-chrome-driver.version>3.141.5</selenium-chrome-driver.version>
         <allure-junit5.version>2.13.10</allure-junit5.version>
         <aspectj.version>1.9.7</aspectj.version>
