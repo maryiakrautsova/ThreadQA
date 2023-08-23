@@ -18,6 +18,8 @@ public abstract class BaseSeleniumTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
+        options.addArguments("disable-dev-shm-usage");
+        options.addArguments("no-sandbox");
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
