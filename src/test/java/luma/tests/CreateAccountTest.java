@@ -6,6 +6,7 @@ import core.TestListener;
 import io.qameta.allure.Description;
 import io.qameta.allure.Flaky;
 import io.qameta.allure.Owner;
+import io.qameta.allure.TmsLink;
 import luma.pages.MainPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +18,7 @@ public class CreateAccountTest extends BaseSeleniumTest {
     @Owner("Maria Kravtsova")
     @Description("Main page is opened, Create Account button is clicked, fills in all fields and clicks Create An " +
             "Account button. Created account name must be present.")
+    @TmsLink("test-5")
     @Flaky
     public void createAccountTest() {
         String firstName = Faker.instance().name().firstName();

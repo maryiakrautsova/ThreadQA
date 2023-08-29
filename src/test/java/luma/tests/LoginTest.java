@@ -5,6 +5,7 @@ import core.TestListener;
 import helpers.FrequentlyUsedMethods;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import io.qameta.allure.TmsLink;
 import luma.pages.CustomerAccountPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,7 @@ public class LoginTest extends BaseSeleniumTest {
     @Owner("Maria Kravtsova")
     @Description("User is created and logged in, clicks Sign Out link, clicks Sign In link, inputs email and password." +
             "Account name equals to 'Home Page'.")
+    @TmsLink("test-7")
     public void signInTest() throws InterruptedException {
         FrequentlyUsedMethods frequentlyUsedMethods = new FrequentlyUsedMethods();
         frequentlyUsedMethods.createUser();

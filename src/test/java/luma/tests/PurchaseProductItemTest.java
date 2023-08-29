@@ -6,6 +6,7 @@ import core.TestListener;
 import helpers.FrequentlyUsedMethods;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import io.qameta.allure.TmsLink;
 import luma.pages.CustomerAccountPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +18,7 @@ public class PurchaseProductItemTest extends BaseSeleniumTest {
     @Owner("Maria Kravtsova")
     @Description("User is logged in, chooses Bags tab from Gear dropdown list, adds the 1st product item to the cart, " +
             "fills in Shipping form and clicks Place Order button. Continue button is present.")
+    @TmsLink("test-9")
     public void makePurchaseTest() throws InterruptedException {
         FrequentlyUsedMethods frequentlyUsedMethods = new FrequentlyUsedMethods();
         frequentlyUsedMethods.createUser();

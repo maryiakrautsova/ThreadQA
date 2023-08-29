@@ -6,6 +6,7 @@ import core.TestListener;
 import helpers.FrequentlyUsedMethods;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
+import io.qameta.allure.TmsLink;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,7 @@ public class ChangePasswordTest extends BaseSeleniumTest {
     @Owner("Maria Kravtsova")
     @Description("User is logged in, clicks Change Password link, fills in Change Password fields and presses Save button." +
             "Changed password alert is present.")
+    @TmsLink("test-3")
     public void changePasswordTest() {
         String newUserPassword = Faker.instance().internet().password(10, 15,
                 true, true);
