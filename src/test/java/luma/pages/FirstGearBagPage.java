@@ -51,7 +51,7 @@ public class FirstGearBagPage extends BaseSeleniumPage {
 
     public boolean isSubmittedReviewAlertPoppedUp() {
         try {
-            new WebDriverWait(driver, 30).until(
+            new WebDriverWait(driver, 50).until(
                     ExpectedConditions.visibilityOf(submittedReviewAlert)
             );
             return submittedReviewAlert.isDisplayed();

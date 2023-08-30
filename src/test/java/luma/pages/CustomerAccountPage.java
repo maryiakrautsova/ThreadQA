@@ -4,6 +4,8 @@ import core.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CustomerAccountPage extends BaseSeleniumPage {
     @FindBy(xpath = "//span[@class='base']")
@@ -26,11 +28,12 @@ public class CustomerAccountPage extends BaseSeleniumPage {
     }
 
     public String getMyAccountName() {
-        return myAccount.getText();
+        return new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(myAccount)).getText();
     }
 
     public CustomerAccountPage clickToSelectSignOut() {
-        dropdownToSignOut.click();
+        new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(dropdownToSignOut))
+                .click();
         return this;
     }
 
@@ -41,7 +44,8 @@ public class CustomerAccountPage extends BaseSeleniumPage {
     }
 
     public MainPage returnToMainPage() {
-        logoButtonToGoToMainPage.click();
+        new WebDriverWait(driver, 30).until(ExpectedConditions.
+                        elementToBeClickable(logoButtonToGoToMainPage)).click();
         return new MainPage();
     }
 
