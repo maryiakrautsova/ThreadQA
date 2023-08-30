@@ -18,7 +18,7 @@ public class SearchForItemTest extends BaseSeleniumTest {
             "Found product item name must equal to the name of item which was searched.")
     @TmsLink("test-10")
     public void searchForItemTest() throws InterruptedException {
-        String itemToBeSearched = "Zing Jump RopeLL";
+        String itemToBeSearched = "Zing Jump Rope";
 
         FrequentlyUsedMethods frequentlyUsedMethods = new FrequentlyUsedMethods();
         String itemName = frequentlyUsedMethods.createUser()
