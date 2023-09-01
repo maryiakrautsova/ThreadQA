@@ -1,6 +1,8 @@
 package luma.pages;
 
 import core.BaseSeleniumPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MenTopsPage extends BaseSeleniumPage {
+    private static final Logger LOGGER = LogManager.getLogger(MenTopsPage.class.getName());
+
     @FindBy(css = ".products .product-items li:first-child")
     private WebElement firstMenTop;
 
@@ -29,9 +33,13 @@ public class MenTopsPage extends BaseSeleniumPage {
     }
 
     public MenTopsPage addFirstProductToCompareList() throws InterruptedException {
+        LOGGER.debug(String.format("Navigation to the first men top item.", firstMenTop));
+
         Actions actions = new Actions(driver);
         actions.moveToElement(firstMenTop).perform();
 
+        LOGGER.debug(String.format("Attempt to click Add To Compare the first product item.",
+                addToCompareFirstProductItem));
         new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(
                 addToCompareFirstProductItem)).click();
 
@@ -39,9 +47,13 @@ public class MenTopsPage extends BaseSeleniumPage {
     }
 
     public MenTopsPage addSecondProductToCompareList() throws InterruptedException {
+        LOGGER.debug(String.format("Navigation to the second men top item.", secondMenTop));
+
         Actions actions = new Actions(driver);
         actions.moveToElement(secondMenTop).perform();
 
+        LOGGER.debug(String.format("Attempt to click Add To Compare the second product item.",
+                addToCompareSecondProductItem));
         new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(
                 addToCompareSecondProductItem)).click();
 
@@ -49,6 +61,9 @@ public class MenTopsPage extends BaseSeleniumPage {
     }
 
     public ProductComparePage openCompareList() {
+        LOGGER.debug(String.format("Attempt to open comparison list.",
+                comparisonList));
+
         new WebDriverWait(driver, 30)
                 .until(ExpectedConditions
                         .visibilityOf(comparisonList)).click();

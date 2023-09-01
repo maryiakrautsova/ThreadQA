@@ -1,6 +1,8 @@
 package luma.pages;
 
 import core.BaseSeleniumPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +13,9 @@ import readProperties.ConfigProvider;
 
 
 public class MainPage extends BaseSeleniumPage {
+
+    private static final Logger LOGGER = LogManager.getLogger(MainPage.class.getName());
+
     @FindBy(linkText = "Create an Account")
     private WebElement createAnAccountLink;
 
@@ -45,22 +50,30 @@ public class MainPage extends BaseSeleniumPage {
     private WebElement fitnessEquipment;
 
     public MainPage() {
+        LOGGER.debug(String.format("Attempt to open URL: %s.", ConfigProvider.URL));
+
         driver.get(ConfigProvider.URL);
         PageFactory.initElements(driver, this);
     }
 
     public CreateAccountPage clickCreateAnAccountLink() {
+        LOGGER.debug(String.format("Attempt to click on Create An Account Link.", createAnAccountLink));
+
         createAnAccountLink.click();
         return new CreateAccountPage();
     }
 
     public LoginPage clickSignInLink() {
+        LOGGER.debug(String.format("Attempt to click on Sign In Link.", signInLink));
+
         new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(signInLink)).click();
         return new LoginPage();
     }
 
 
     public boolean isSignInLinkVisible() {
+        LOGGER.debug(String.format("Check whether Sign In link is visible or not: %s.", signInLink));
+
         try {
             new WebDriverWait(driver, 30).until(
                     ExpectedConditions.elementToBeClickable(signInLink)
@@ -72,28 +85,49 @@ public class MainPage extends BaseSeleniumPage {
     }
 
     public SearchResultsPage inputSearchNameAndClickSearchButton(String itemToBeSearched) {
+        LOGGER.debug(String.format("Input name of the item to be searched" + itemToBeSearched +
+                " into Search field: %s.", searchField));
+
         searchField.sendKeys(itemToBeSearched);
+
+        LOGGER.debug(String.format("Attempt to click on Search button: %s.", searchButton));
+
         searchButton.click();
         return new SearchResultsPage();
     }
 
     public GearBagsPage chooseBagsTabFromGearDropdownList() {
+        LOGGER.debug(String.format("Attempt to open Gear dropdown list: %s.", gearDropdownList));
+
         Actions action = new Actions(driver);
         action.moveToElement(gearDropdownList).perform();
+
+        LOGGER.debug(String.format("Attempt to click on Bags option: %s.", bags));
+
         bags.click();
         return new GearBagsPage();
     }
 
     public GearBagsPage chooseFitnessEquipmentTabFromGearDropdownList() {
+        LOGGER.debug(String.format("Attempt to open Gear dropdown list: %s.", gearDropdownList));
+
         Actions action = new Actions(driver);
         action.moveToElement(gearDropdownList).perform();
+
+        LOGGER.debug(String.format("Attempt to click on Fitness Equipment option: %s.", fitnessEquipment));
+
         fitnessEquipment.click();
         return new GearBagsPage();
     }
 
     public MenTopsPage chooseTopsTabFromMenDropdownList() {
+        LOGGER.debug(String.format("Attempt to open Men dropdown list: %s.", menDropdownList));
+
         Actions action = new Actions(driver);
         action.moveToElement(menDropdownList).perform();
+
+        LOGGER.debug(String.format("Attempt to click on Men Tops option: %s.", menTopsDropdownList));
+
         menTopsDropdownList.click();
         return new MenTopsPage();
     }

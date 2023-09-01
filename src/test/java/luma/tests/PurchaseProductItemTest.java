@@ -8,12 +8,16 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.TmsLink;
 import luma.pages.CustomerAccountPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junitpioneer.jupiter.RetryingTest;
 
 @ExtendWith(TestListener.class)
 public class PurchaseProductItemTest extends BaseSeleniumTest {
+    private static final Logger LOGGER = LogManager.getLogger(PurchaseProductItemTest.class.getName());
+
     @RetryingTest(3)
     @Owner("Maria Kravtsova")
     @Description("User is logged in, chooses Bags tab from Gear dropdown list, adds the 1st product item to the cart, " +
@@ -21,9 +25,15 @@ public class PurchaseProductItemTest extends BaseSeleniumTest {
     @TmsLink("test-9")
     public void makePurchaseTest() throws InterruptedException {
         FrequentlyUsedMethods frequentlyUsedMethods = new FrequentlyUsedMethods();
+
+        LOGGER.info(String.format("Attempt to create a new user."));
         frequentlyUsedMethods.createUser();
+
         String userFirstName = Faker.instance().name().firstName();
+        LOGGER.info(String.format("Generation of user first name.", userFirstName));
+
         String userLastName = Faker.instance().name().lastName();
+        LOGGER.info(String.format("Generation of user last name.", userLastName));
 
         CustomerAccountPage customerAccountPage = new CustomerAccountPage();
 
@@ -37,6 +47,9 @@ public class PurchaseProductItemTest extends BaseSeleniumTest {
                         String.valueOf(Faker.instance().phoneNumber()))
                 .clickPlaceOrderButton().
                 isContinueButtonPresent();
+
+        LOGGER.info(String.format("Continue button is present.", continueButtonIsPresent));
+
         Assertions.assertTrue(continueButtonIsPresent);
     }
 }
