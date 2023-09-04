@@ -25,13 +25,13 @@ public class ShippingPage extends BaseSeleniumPage {
     @FindBy(xpath = "//div[@name='shippingAddress.street.0']//div//input")
     private WebElement addressField;
 
-    @FindBy(xpath = "(//select[@class='select'])[2]")
+    @FindBy(xpath = "//div[@name='shippingAddress.country_id']//select[@class='select']")
     private WebElement countryListField;
 
     @FindBy(xpath = "//form[@id='co-shipping-form']//input[@name='city']")
     private WebElement cityField;
 
-    @FindBy(xpath = "(//select[@class='select'])[1]")
+    @FindBy(xpath = "//div[@name='shippingAddress.region_id']//select[@class='select']")
     private WebElement stateList;
 
     @FindBy(xpath = "//form[@id='co-shipping-form']//input[@name='postcode']")

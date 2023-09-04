@@ -35,6 +35,6 @@ public class AddProductItemToWishListTest extends BaseSeleniumTest {
         LOGGER.info(String.format("The chosen product item is added to Wish list confirmation is present.",
                 itemIsAddedConfirmation));
 
-        Assertions.assertEquals("1 Item", itemIsAddedConfirmation);
+        Assertions.assertEquals("1 item", itemIsAddedConfirmation);
     }
 }

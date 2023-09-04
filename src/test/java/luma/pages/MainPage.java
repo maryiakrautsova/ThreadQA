@@ -19,7 +19,7 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(linkText = "Create an Account")
     private WebElement createAnAccountLink;
 
-    @FindBy(xpath = "(//li[@class='authorization-link'])[1]")
+    @FindBy(xpath = "//div[@class='panel header']//li[@class='authorization-link']")
     private WebElement signInLink;
 
     @FindBy(id = "search")
@@ -96,7 +96,7 @@ public class MainPage extends BaseSeleniumPage {
         return new SearchResultsPage();
     }
 
-    public GearBagsPage chooseBagsTabFromGearDropdownList() {
+    public GearPage chooseBagsTabFromGearDropdownList() {
         LOGGER.debug(String.format("Attempt to open Gear dropdown list: %s.", gearDropdownList));
 
         Actions action = new Actions(driver);
@@ -105,10 +105,10 @@ public class MainPage extends BaseSeleniumPage {
         LOGGER.debug(String.format("Attempt to click on Bags option: %s.", bags));
 
         bags.click();
-        return new GearBagsPage();
+        return new GearPage();
     }
 
-    public GearBagsPage chooseFitnessEquipmentTabFromGearDropdownList() {
+    public GearPage chooseFitnessEquipmentTabFromGearDropdownList() {
         LOGGER.debug(String.format("Attempt to open Gear dropdown list: %s.", gearDropdownList));
 
         Actions action = new Actions(driver);
@@ -117,7 +117,7 @@ public class MainPage extends BaseSeleniumPage {
         LOGGER.debug(String.format("Attempt to click on Fitness Equipment option: %s.", fitnessEquipment));
 
         fitnessEquipment.click();
-        return new GearBagsPage();
+        return new GearPage();
     }
 
     public MenTopsPage chooseTopsTabFromMenDropdownList() {

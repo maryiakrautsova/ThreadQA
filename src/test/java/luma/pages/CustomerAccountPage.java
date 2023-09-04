@@ -16,10 +16,10 @@ public class CustomerAccountPage extends BaseSeleniumPage {
     @FindBy(xpath = "//span[@class='base']")
     private WebElement myAccount;
 
-    @FindBy(xpath = "(//span[@class=\"customer-name\"])[1]")
+    @FindBy(xpath = "//div[@class='panel header']//button[@data-action='customer-menu-toggle']")
     private WebElement dropdownToSignOut;
 
-    @FindBy(xpath = "(//a[contains(@href,'logout')])[1]")
+    @FindBy(css = ".panel .customer-menu .authorization-link a")
     private WebElement signOutLink;
 
     @FindBy(xpath = "//a[@class='logo']")

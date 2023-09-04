@@ -26,9 +26,6 @@ public class CreateAccountPage extends BaseSeleniumPage {
     @FindBy(id = "password-confirmation")
     private WebElement confirmPasswordField;
 
-    @FindBy(xpath = "//input[@name='is_subscribed']")
-    private WebElement signUpForNewsletterCheckbox;
-
     @FindBy(xpath = "//button[@class='action submit primary']")
     private WebElement createAnAccountButton;
 

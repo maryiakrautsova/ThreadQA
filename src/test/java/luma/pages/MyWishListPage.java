@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MyWishListPage extends BaseSeleniumPage {
     private static final Logger LOGGER = LogManager.getLogger(MyWishListPage.class.getName());
 
-    @FindBy(xpath = "(//span[@class='toolbar-number'])[1]")
+    @FindBy(xpath = "//span[@class='counter']")
     private WebElement amountOfAddedToWishListItems;
 
     public MyWishListPage() {

@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class GearBagsPage extends BaseSeleniumPage {
-    private static final Logger LOGGER = LogManager.getLogger(GearBagsPage.class.getName());
+public class GearPage extends BaseSeleniumPage {
+    private static final Logger LOGGER = LogManager.getLogger(GearPage.class.getName());
 
     @FindBy(css = ".products .product-items li:first-child")
     private WebElement firstBag;
@@ -33,13 +33,13 @@ public class GearBagsPage extends BaseSeleniumPage {
     @FindBy(id = "top-cart-btn-checkout")
     private WebElement proceedToCheckoutButton;
 
-    @FindBy(xpath = "(//div[@data-role='title'])[2]")
+    @FindBy(xpath = "//div[@data-role='title' and text()='Price']")
     private WebElement priceTab;
 
-    @FindBy(xpath = "((//div[@class='filter-options-content'])[2]//span[@class='price'])[1]")
+    @FindBy(xpath = "//span[text()='$20.00']")
     private WebElement priceTwentyToThirtyDollarsFilter;
 
-    public GearBagsPage() {
+    public GearPage() {
         PageFactory.initElements(driver, this);
     }
 
