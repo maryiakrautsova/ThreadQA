@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class unSuccessUserRegistrationTest {
+public class UnSuccessUserRegistrationTest {
     @Test
     @Owner("Maria Kravtsova")
     @Description("1. Используя сервис https://reqres.in/ протестировать неуспешную регистрацию пользователя в системе.")

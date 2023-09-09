@@ -13,20 +13,18 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-
-public class CheckAvatarAndIdTest {
-
+public class CheckUserListWithDelayTest {
     @Test
     @Owner("Maria Kravtsova")
-    @Description("1. Получить список пользователей со второй страница на сайте https://reqres.in/;" +
+    @Description("1. Дождаться список пользователей со второй страница на сайте https://reqres.in/;" +
             "2. Убедиться что id пользователей содержаться в их avatar;" +
             "3. Убедиться, что email пользователей имеет окончание reqres.in.")
-    @TmsLink("api-test-1")
-    public void checkAvatarAndIdTest() {
+    @TmsLink("api-test-12")
+    public void checkAvatarAndIdInUserListWithDelayTest() {
         Specifications.installSpecs(Specifications.requestSpec(Urls.URL), Specifications.responseSpec200OK());
         List<UserData> users = given().
                 when().
-                get("/api/users?page=2").
+                get("api/users?delay=3").
                 then().log().all().
                 extract().body().jsonPath().getList("data", UserData.class);
 
